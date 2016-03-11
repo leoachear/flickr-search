@@ -6,7 +6,11 @@
 
 			$scope.results = [];
 
+			$scope.isSearching = false;
+
 			$scope.search = function () {
+
+				$scope.isSearching = true;	
 
 				$http({
 					method: 'GET',
@@ -21,9 +25,12 @@
 				}).success(function (data) {
 
 					$scope.results = data;
+					$scope.isSearching = false;
 
 				}).error(function (error) {
 					console.error(error);
+					$scope.isSearching = false;
+
 				});
 
 			};

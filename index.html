@@ -22,13 +22,14 @@
 
 			<form ng-submit="search()">
 				<!-- <md-text-float label="Search for" class="long" ng-model="searchTerm"></md-text-float> -->
-				<md-input-container md-no-float class="md-block">
+				<md-input-container md-no-float class="md-block" ng-show="!isSearching">
         		  <input ng-model="searchTerm" placeholder="Search for" class="long">
         		</md-input-container>
-			</form>
+        		<md-progress-circular md-theme="blue" md-mode="indeterminate" ng-if="isSearching"></md-progress-circular>
+  			</form>
 
 			<md-card ng-repeat="picture in results.photos.photo">
-				<img ng-src="https://farm{{picture.farm}}.staticflickr.com/{{picture.server}}/{{picture.id}}_{{picture.secret}}_m.jpg" alt="" class="md-card-image">
+				<img ng-src="https://farm{{picture.farm}}.staticflickr.com/{{picture.server}}/{{picture.id}}_{{picture.secret}}_b.jpg" alt="" class="md-card-image">
 				<h3>{{ picture.title }}</h3>
 			</md-card>
 
